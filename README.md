@@ -1,14 +1,22 @@
 # NDP Framework
 The goal of this project is to create a framework by which I can explore Near Data Processing (NDP) algorithms and, eventually, estimate the performance of an NDP-based appliance on relevant graph and AI benchmarks.
-The baseline is to have Python objects for the NDP storage nodes and different Python objects for the interconnect between the nodes. Then, I can ascribe performance numbers to each computation and move. I plan to build a ledger of each action when it happens in the simulation. Then, I can back-annotate with the performance implications.
+
+## Implementation Plan
+The baseline is to have Python classes for the NDP storage nodes and different Python classes for moving data between the nodes. Then, I can ascribe performance numbers to each computation and move. 
+
+While this may sound simple, even the computations can get complex, which is why the code has the beginnings of a TI DSP model in the Python code. They get even more complicated when factors, such as caching and cache misses, come into play for modern processors. I want to evaluate novel architectures, too, like Forth (https://www.forth.org and https://www.forth.org/cores.html) which focus on simplicity. I also wonder about unique architectures like **Mythic** or Micron's **Automata**.
+
+The real challenges to modeling performance and power are in the movement, though, and that's where this structure should really shine. Whether DDR, NVMe, CXL, or NVLink, the traffic and routing (through CPU or node-to-node) will greatly impact the performance and power. I believe that I need all the resources that I can muster in a class.
+
+I plan to build a, SQL ledger of each action when it happens in the simulation. Then, I can back-annotate with the performance implications to see where I am losing performance opportunity.
 
 ## Next steps
 ### Software infrastructure
 I want to use NDP techniques to gain experience solving real-world problems. Examples include:
 - Graph analytics game solvers (solitaire, poker, rubik's cube)
-- GNNs for the stock market, taking into account fundmental, tachnical, and cyclical events.
+- GNNs for the stock market, taking into account fundmental, tachnical, seasonality, and cyclical events (dividends, earnings, major conferences).
   
-After gaining this experience, it should be more obvious what kind of software strategy to pursue. One thought is to use CUDA so that it can easily be substituted in for GPUs. I know Intel chose to develop their own OneAPI based on SyCL instead of using CUDA, though. I wonder if that was for legal reasons or NIH syndrome. Doing the very basic activities like those in the current code shows just how clunky both CUDA and SyCL are. After letting CoPilots develop this code in various Parallel processing models/languages, I am very interested in pursuing Julia. 
+After gaining this experience, it should be more obvious what kind of software strategy to pursue. One thought is to use CUDA so that it can easily be substituted in for GPUs. I know Intel chose to develop their own OneAPI based on SyCL instead of using CUDA, though. I wonder if that was for legal reasons or NIH syndrome. Doing the very basic activities like those in the current code shows just how clunky both CUDA and SyCL are. After letting CoPilots develop this code in various Parallel processing models/languages, I am very interested in pursuing Julia. It was definitely the most intuitive CoPilot result.
 
 I asked Meta.AI about it:
 > **SYCL Advantages**:
