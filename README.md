@@ -15,6 +15,7 @@ I plan to build a, SQL ledger of each action when it happens in the simulation. 
 I want to use NDP techniques to gain experience solving real-world problems. Examples include:
 - Graph analytics game solvers (solitaire, poker, rubik's cube)
 - GNNs for the stock market, taking into account fundmental, tachnical, seasonality, and cyclical events (dividends, earnings, major conferences).
+- LLM inferencing
   
 After gaining this experience, it should be more obvious what kind of software strategy to pursue. One thought is to use CUDA so that it can easily be substituted in for GPUs. I know Intel chose to develop their own OneAPI based on SyCL instead of using CUDA, though. I wonder if that was for legal reasons or NIH syndrome. Doing the very basic activities like those in the current code shows just how clunky both CUDA and SyCL are. After letting CoPilots develop this code in various Parallel processing models/languages, I am very interested in pursuing Julia. It was definitely the most intuitive CoPilot result.
 
